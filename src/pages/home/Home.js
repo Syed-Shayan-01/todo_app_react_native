@@ -1,38 +1,47 @@
-import {View, Text, StyleSheet, Dimensions} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
-import Font5 from 'react-native-vector-icons/FontAwesome5';
+import {View, Text, StyleSheet, Dimensions, TextInput} from 'react-native';
+import React from 'react';
+import Navbar from '../../components/navbar/Navbar';
 const {width, height} = Dimensions.get('window');
 const Home = () => {
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <LinearGradient
-        colors={['#22bdf8', '#2570fa']}
-        style={style.linearGradient}>
+    <>
+      <View>
+        <Navbar titleName={'Homepage'} />
+      </View>
+
+      <View>
         <View>
-          <Text style={style.location}>
-            <Font5 name="map-marked-alt" />
-          </Text>
-          <Text style={style.location}>London</Text>
+          <Text style={styles.mainText}>Tasks</Text>
         </View>
-      </LinearGradient>
-    </View>
+        <View>
+          <TextInput style={styles.seachbar} placeholder="Search" />
+        </View>
+      </View>
+    </>
   );
 };
 
-const style = StyleSheet.create({
-  linearGradient: {
-    flex: 1,
-    width: width,
-    height: height,
+const styles = StyleSheet.create({
+  mainText: {
+    fontSize: 25,
+    position: 'absolute',
+    top: height * 0.02,
+    left: width * 0.05,
+    color: '#333333',
   },
-  location: {
-    marginHorizontal: 'auto',
-    marginTop: height * 0.02,
-    fontSize: 24,
-    fontWeight: '700',
-    textAlign: 'center',
-    color: 'white',
-    shadowColor: '#000',
+  seachbar: {
+    position: 'absolute',
+    top: height * 0.09,
+    left: width * 0.05,
+    width: width * 0.9,
+    height: height * 0.09,
+    backgroundColor: 'white',
+    borderRadius: 10,
+    paddingHorizontal: width * 0.04,
+    paddingVertical: 5,
+    fontSize: 16,
+    letterSpacing: 0.8,
+    elevation: 1.4,
   },
 });
 export default Home;
