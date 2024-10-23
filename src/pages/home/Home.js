@@ -26,28 +26,28 @@ const Home = () => {
     },
     {
       id: 2,
-      title: 'Task 1',
+      title: 'Task 2',
       description:
         'The main body of matter in a manuscript, book, newspaper, etc., as distinguished from notes, appendixes, headings, illustrations, etc.',
       time: '06:24pm',
     },
     {
       id: 3,
-      title: 'Task 1',
+      title: 'Task 3',
       description:
         'The main body of matter in a manuscript, book, newspaper, etc., as distinguished from notes, appendixes, headings, illustrations, etc.',
       time: '06:24pm',
     },
     {
       id: 4,
-      title: 'Task 1',
+      title: 'Task 4',
       description:
         'The main body of matter in a manuscript, book, newspaper, etc., as distinguished from notes, appendixes, headings, illustrations, etc.',
       time: '06:24pm',
     },
     {
       id: 5,
-      title: 'Task 1',
+      title: 'Task 5',
       description:
         'The main body of matter in a manuscript, book, newspaper, etc., as distinguished from notes, appendixes, headings, illustrations, etc.',
       time: '06:24pm',
@@ -59,29 +59,33 @@ const Home = () => {
         'The main body of matter in a manuscript, book, newspaper, etc., as distinguished from notes, appendixes, headings, illustrations, etc.',
       time: '06:24pm',
     },
+    {
+      id: 7,
+      title: 'Task 1',
+      description:
+        'The main body of matter in a manuscript, book, newspaper, etc., as distinguished from notes, appendixes, headings, illustrations, etc.',
+      time: '06:24pm',
+    },
   ];
 
   return (
-    <View>
+    <>
+      {/* Added flex: 1 to this container */}
       <Navbar titleName="Homepage" />
-
       <View>
         <Text style={styles.mainText}>Tasks</Text>
         <TextInput style={styles.searchBar} placeholder="Search" />
       </View>
-
       <View style={styles.todayTextContainer}>
         <Text style={styles.todayText}>Today's Tasks</Text>
       </View>
-
+      {/* Make sure FlatList can expand and scroll properly */}
       <FlatList
         data={data}
-        renderItem={({item, index}) => <TaskItem key={item.id} item={item} />}
+        renderItem={({item, index}) => <TaskItem item={item} />}
         keyExtractor={item => item.id.toString()}
-        horizontal={false}
-        showsVerticalScrollIndicator={true}
       />
-    </View>
+    </>
   );
 };
 
@@ -180,7 +184,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   items: {
-    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     backgroundColor: 'white',
